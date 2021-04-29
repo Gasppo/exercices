@@ -52,17 +52,18 @@ const data = [
   },
 ];
 
-const iceCreamTotals = data.reduce(function (prev, curr) {
-  return {
-    ...prev,
-    ...curr.favoriteIceCreams.reduce(
+const iceCreamTotals = data.reduce(
+  (prevPerson, currPerson) => ({
+    ...prevPerson,
+    ...currPerson.favoriteIceCreams.reduce(
       (prevFlav, currFlav) => ({
         ...prevFlav,
-        [currFlav]: prev[currFlav] ? prev[currFlav] + 1 : 1,
+        [currFlav]: prevPerson[currFlav] ? prevPerson[currFlav] + 1 : 1,
       }),
       {}
     ),
-  };
-}, {});
+  }),
+  {}
+);
 
 console.log(iceCreamTotals);
