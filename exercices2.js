@@ -28,7 +28,7 @@ const musicData = [
 ];
 
 const results = musicData.filter(
-  (music) => music.name.length <= 25 && music.name.length >= 10
+  (album) => album.name.length <= 25 && album.name.length >= 10
 );
 
 console.log(results);
